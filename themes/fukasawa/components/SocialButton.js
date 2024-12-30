@@ -35,12 +35,21 @@ const SocialButton = () => {
   return (
     <div className='w-full justify-center flex-wrap flex'>
       <div className='space-x-3 text-xl flex items-center text-gray-600 dark:text-gray-300 '>
+        {CONTACT_GITHUB && (
+          <a
+            target='_blank'
+            rel='noreferrer'
+            title={'github'}
+            href={CONTACT_GITHUB}>
+            <i className='transform hover:scale-125 duration-150 fab fa-github dark:hover:text-green-400 hover:text-green-600' />
+          </a>
+        )}
         {CONTACT_EMAIL && (
           <a
             target='_blank'
             rel='noreferrer'
             title={'email'}
-            href={`mailto:${delores0217@126.com}`}>
+            href={`mailto:delores0217@126.com}`}>
             <i className='transform hover:scale-125 duration-150 fas fa-envelope dark:hover:text-green-400 hover:text-green-600' />
           </a>
         )}
