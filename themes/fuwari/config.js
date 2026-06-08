@@ -60,7 +60,6 @@ const CONFIG = {
   /** 公告（有公告数据时） */
   FUWARI_WIDGET_NOTICE: true,
   /** 最新文章列表 */
-  FUWARI_WIDGET_LATEST_POSTS: true,
   /** 分类云/列表 */
   FUWARI_WIDGET_CATEGORY_LIST: true,
   /** 标签云/列表 */
