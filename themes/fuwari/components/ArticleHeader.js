@@ -1,4 +1,5 @@
 import SmartLink from '@/components/SmartLink'
+import { useGlobal } from '@/lib/global'
 import { siteConfig } from '@/lib/config'
 import { useRouter } from 'next/router'
 import CONFIG from '../config'
