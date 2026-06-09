@@ -30,7 +30,13 @@ const getArchiveHref = (publishDay, router) => {
 
 const ArticleHeader = ({ post }) => {
   const router = useRouter()
+  const { locale } = useGlobal()
   if (!post) return null
+
+  const wordCount = post.wordCount || post.words || 0
+  const readTime = post.readTime || (wordCount ? Math.max(1, Math.round(wordCount / 275)) : 0)
+  const showReading =
+    siteConfig('FUWARI_ARTICLE_READING_TIME', true, CONFIG) && wordCount > 0
 
   return (
     <header className='mb-6'>
@@ -38,12 +44,7 @@ const ArticleHeader = ({ post }) => {
       {siteConfig('FUWARI_ARTICLE_META', true, CONFIG) && (
         <div className='text-sm text-[var(--fuwari-muted)] flex flex-wrap items-center gap-2'>
           <SmartLink href={getArchiveHref(post.publishDay, router)} className='fuwari-link'>{post.publishDay}</SmartLink>
-          {post.lastEditedDay && (
-            <>
-              <span>·</span>
-              <SmartLink href={getArchiveHref(post.lastEditedDay, router)} className='fuwari-link'>{post.lastEditedDay}</SmartLink>
-            </>
-          )}
+
           {post.category && (
             <>
               <span>·</span>
@@ -63,6 +64,20 @@ const ArticleHeader = ({ post }) => {
                   {idx > 0 ? ` / #${tag.name}` : `#${tag.name}`}
                 </SmartLink>
               ))}
+            </>
+          )}
+          {showReading && (
+            <>
+              <span>·</span>
+              <span className='inline-flex items-center gap-1'>
+                <i className='far fa-clock' aria-hidden='true' />
+                {readTime} {locale?.COMMON?.MINUTE || 'min'}
+              </span>
+              <span>·</span>
+              <span className='inline-flex items-center gap-1'>
+                <i className='far fa-file-lines' aria-hidden='true' />
+                {wordCount.toLocaleString()} {locale?.COMMON?.WORD_COUNT || '字'}
+              </span>
             </>
           )}
         </div>

@@ -60,6 +60,7 @@ const CONFIG = {
   /** 公告（有公告数据时） */
   FUWARI_WIDGET_NOTICE: true,
   /** 最新文章列表 */
+  FUWARI_WIDGET_LATEST_POSTS: false,
   /** 分类云/列表 */
   FUWARI_WIDGET_CATEGORY_LIST: true,
   /** 标签云/列表 */
@@ -126,6 +127,8 @@ const CONFIG = {
   // ---------------------------------------------------------------------------
   /** 有 Notion 封面时，在详情页文章卡片内顶部展示封面图（object-cover，不占满屏） */
   FUWARI_ARTICLE_COVER_HERO: false,
+  /** 文首显示阅读时长与字数 */  
+  FUWARI_ARTICLE_READING_TIME: true,
   /** 文首：日期、分类、标签等元信息 */
   FUWARI_ARTICLE_META: true,
   /** 分享条 */
